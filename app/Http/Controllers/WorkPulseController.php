@@ -635,7 +635,12 @@ class WorkPulseController extends Controller
                 'user_id' => $user->id,
             ]);
 
-            $response = Http::timeout(8)->post($webhookUrl, $payload);
+            $response = Http::timeout(10)
+                ->withHeaders([
+                    'Bypass-Tunnel-Reminder' => 'true',
+                    'User-Agent'             => 'WorkPulse-Webhook/1.0',
+                ])
+                ->post($webhookUrl, $payload);
 
             if ($response->successful()) {
                 Log::info('WorkPulse: Sukses terkirim ke N8N', [
