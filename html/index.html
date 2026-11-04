@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WorkPulse – Platform Asesmen Budaya Kerja &amp; Risiko Burnout Startup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="stylesheet" href="../css/auth.css">
+<link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+<!-- ==================== LANDING PAGE ==================== -->
+<div id="landing-page">
+  <nav class="landing-nav" style="display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(255,255,255,0.9);border-bottom:1px solid #E2E8F0;position:sticky;top:0;z-index:90;backdrop-filter:blur(8px)">
+    <div class="landing-brand" style="font-size:22px;font-weight:800;color:#6366F1;letter-spacing:-0.03em;display:flex;align-items:center;gap:6px">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      WorkPulse
+    </div>
+    <div class="landing-nav-links" style="display:flex;gap:28px">
+      <a class="landing-nav-link" href="#fitur" style="color:#475569;text-decoration:none;font-weight:600;font-size:13.5px">Fitur Asesmen</a>
+      <a class="landing-nav-link" href="#pilar" style="color:#475569;text-decoration:none;font-weight:600;font-size:13.5px">6 Pilar Budaya</a>
+      <a class="landing-nav-link" href="#metodologi" style="color:#475569;text-decoration:none;font-weight:600;font-size:13.5px">Metodologi Klinis</a>
+    </div>
+    <div class="landing-nav-btns" style="display:flex;gap:10px">
+      <button class="btn-secondary" onclick="showView('login')">Masuk Akun</button>
+      <button class="btn-primary" onclick="showView('register')">Mulai Asesmen Gratis</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="landing-hero" style="padding:80px 48px;max-width:1100px;margin:0 auto;text-align:center">
+    <div class="hero-content">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;color:#4F46E5;font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;margin-bottom:20px;border:1px solid #C7D2FE">
+        <span style="width:8px;height:8px;border-radius:50%;background:#6366F1"></span>
+        Platform Klinis Diagnostik Budaya Startup #1 Indonesia
+      </div>
+      <h1 style="font-size:46px;font-weight:800;color:#0F172A;line-height:1.2;letter-spacing:-0.03em;margin-bottom:20px">
+        Identifikasi Risiko Burnout &amp; Kelelahan Sistemik<br><span style="color:#6366F1">Sebelum Talenta Terbaik Anda Resign</span>
+      </h1>
+      <p style="font-size:16px;color:#64748B;max-width:760px;margin:0 auto 32px;line-height:1.6">
+        WorkPulse membantu <strong>Founder (C-Level)</strong> dan <strong>Karyawan (Staf)</strong> startup teknologi mendeteksi lingkungan kerja toxic, beban sprint berlebih, dan ketimpangan kompensasi berbasis analisis data objektif 6 pilar budaya.
+      </p>
+      <div style="display:flex;gap:14px;justify-content:center;margin-bottom:48px">
+        <button class="btn-primary" style="padding:14px 28px;font-size:15px" onclick="showView('register')">Mulai Evaluasi Startup Anda →</button>
+        <button class="btn-secondary" style="padding:14px 24px;font-size:15px" onclick="showView('login')">Lihat Demo Platform</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:28px;box-shadow:var(--shadow-sm)">
+        <div>
+          <div style="font-size:28px;font-weight:800;color:#0F172A">120+</div>
+          <div style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">Startup Terdaftar</div>
+        </div>
+        <div>
+          <div style="font-size:28px;font-weight:800;color:#6366F1">99.4%</div>
+          <div style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">Akurasi Deteksi Burnout</div>
+        </div>
+        <div>
+          <div style="font-size:28px;font-weight:800;color:#10B981">6 Pilar</div>
+          <div style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">Kesehatan Organisasi</div>
+        </div>
+        <div>
+          <div style="font-size:28px;font-weight:800;color:#2563EB">Real-time</div>
+          <div style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">Analisis Sentimen Tim</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fitur Asesmen Section -->
+  <section id="fitur" style="padding:70px 48px;max-width:1100px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:44px">
+      <div style="font-size:11px;font-weight:800;color:#6366F1;letter-spacing:0.05em">KAPABILITAS PLATFORM</div>
+      <h2 style="font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-top:6px">Fitur Asesmen Budaya &amp; Burnout Startup</h2>
+      <p style="font-size:14px;color:#64748B;margin-top:4px">Dirancang spesifik untuk dinamika fast-paced tech startup dari tahap Pre-Seed hingga Series A+.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="card" style="padding:28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:#EEF2FF;color:#6366F1;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div style="font-size:16px;font-weight:700;color:#0F172A;margin-bottom:8px">36 Indikator Klinis Terukur</div>
+        <div style="font-size:13px;color:#64748B;line-height:1.6">Kuesioner berbasis skala Likert 1–5 yang mengukur kelelahan emosional, batasan sprint, dan transparansi runway secara presisi.</div>
+      </div>
+      <div class="card" style="padding:28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:#ECFDF5;color:#10B981;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div style="font-size:16px;font-weight:700;color:#0F172A;margin-bottom:8px">Evaluasi 2 Sudut Pandang</div>
+        <div style="font-size:13px;color:#64748B;line-height:1.6">Mengintegrasikan visi strategis Founder/C-Level dengan pengalaman riil staf engineering guna mendeteksi blind-spot manajemen.</div>
+      </div>
+      <div class="card" style="padding:28px">
+        <div style="width:44px;height:44px;border-radius:12px;background:#FEF3C7;color:#F59E0B;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div style="font-size:16px;font-weight:700;color:#0F172A;margin-bottom:8px">Deteksi Dini Risiko Burnout</div>
+        <div style="font-size:13px;color:#64748B;line-height:1.6">Sistem peringatan dini otomatis saat skor komposit berada di bawah ambang aman sebelum terjadi turnover talenta kunci.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Pilar Section -->
+  <section id="pilar" style="padding:60px 48px;background:#FFFFFF;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0">
+    <div style="max-width:1100px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:40px">
+        <div style="font-size:11px;font-weight:800;color:#6366F1;letter-spacing:0.05em">FRAMEWORK DIAGNOSTIK</div>
+        <h2 style="font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-top:6px">6 Pilar Budaya Kerja &amp; Mitigasi Burnout</h2>
+        <p style="font-size:14px;color:#64748B;margin-top:4px">Kombinasi evaluasi strategis C-Level dan pengalaman langsung staf teknis di lapangan.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        <div class="card">
+          <div style="width:40px;height:40px;border-radius:10px;background:#EEF2FF;color:#6366F1;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">1. Visi &amp; Transparansi (VT)</div>
+          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Kejelasan arah runway, keterbukaan keputusan pivot strategi, dan penyelarasan OKR lintas divisi.</div>
+        </div>
+        <div class="card">
+          <div style="width:40px;height:40px;border-radius:10px;background:#ECFDF5;color:#10B981;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">2. Kualitas Kepemimpinan (KK)</div>
+          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Empati manajerial, pengakuan kontribusi, dan penghapusan micromanagement yang menekan engineer.</div>
+        </div>
+        <div class="card">
+          <div style="width:40px;height:40px;border-radius:10px;background:#E0F2FE;color:#0EA5E9;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">3. Fasilitas &amp; Infrastruktur (FI)</div>
+          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Investasi hardware, lisensi software/cloud modern, stabilitas pipeline CI/CD, dan tunjangan kerja remote.</div>
+        </div>
+        <div class="card">
+          <div style="width:40px;height:40px;border-radius:10px;background:#FFE4E6;color:#F43F5E;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">4. Beban Kerja / Workload (BK)</div>
+          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Pencegahan lembur terus-menerus, peredaman sprint crunch, dan penghormatan waktu istirahat tim.</div>
+        </div>
+        <div class="card">
+          <div style="width:40px;height:40px;border-radius:10px;background:#EDE9FE;color:#8B5CF6;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">5. Kesejahteraan Mental (KM)</div>
+          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Keamanan psikologis (psychological safety), iklim bebas intimidasi, dan support pencegahan kelelahan emosional.</div>
+        </div>
+        <div class="card">
+          <div style="width:40px;height:40px;border-radius:10px;background:#FEF3C7;color:#F59E0B;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">6. Kompensasi &amp; Karir (KP)</div>
+          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Daya saing gaji industri, transparansi kepemilikan ESOP, dan jalur jenjang karir yang terukur adil.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodologi Klinis Section -->
+  <section id="metodologi" style="padding:70px 48px;max-width:1100px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:44px">
+      <div style="font-size:11px;font-weight:800;color:#6366F1;letter-spacing:0.05em">STANDAR PENGUKURAN</div>
+      <h2 style="font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-top:6px">Metodologi &amp; Klasifikasi Risiko Burnout</h2>
+      <p style="font-size:14px;color:#64748B;margin-top:4px">Skor komposit dihitung dalam rentang 1.00 – 5.00 dan dipetakan ke 4 tingkatan status klinis.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div class="card" style="padding:22px;border-top:4px solid #10B981">
+        <div style="font-size:12px;font-weight:800;color:#10B981;margin-bottom:6px">4.20 – 5.00</div>
+        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">Budaya Kerja Positif</div>
+        <div style="font-size:12px;color:#64748B;line-height:1.5">Organisasi sangat sehat, beban terdistribusi merata, dan psychological safety tinggi.</div>
+      </div>
+      <div class="card" style="padding:22px;border-top:4px solid #2563EB">
+        <div style="font-size:12px;font-weight:800;color:#2563EB;margin-bottom:6px">3.50 – 4.19</div>
+        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">Kondisi Stabil</div>
+        <div style="font-size:12px;color:#64748B;line-height:1.5">Ritme sprint terkendali, perlu pemantauan berkala saat release cycle tinggi.</div>
+      </div>
+      <div class="card" style="padding:22px;border-top:4px solid #F59E0B">
+        <div style="font-size:12px;font-weight:800;color:#F59E0B;margin-bottom:6px">2.80 – 3.49</div>
+        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">Waspada Gejala Burnout</div>
+        <div style="font-size:12px;color:#64748B;line-height:1.5">Terdeteksi kelelahan sistemik awal, jam lembur meningkat, atau friksi komunikasi internal.</div>
+      </div>
+      <div class="card" style="padding:22px;border-top:4px solid #EF4444">
+        <div style="font-size:12px;font-weight:800;color:#EF4444;margin-bottom:6px">1.00 – 2.79</div>
+        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">Risiko Burnout Tinggi</div>
+        <div style="font-size:12px;color:#64748B;line-height:1.5">Kelelahan mental akut, risiko turnover tinggi, memerlukan tindakan perbaikan mendesak.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section style="padding:60px 48px;text-align:center;background:#F8FAFC">
+    <div style="max-width:680px;margin:0 auto">
+      <h2 style="font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-bottom:12px">Siap Membangun Tim Startup yang Tahan Banting?</h2>
+      <p style="font-size:14.5px;color:#64748B;line-height:1.6;margin-bottom:24px">Bergabung dengan ekosistem teknologi yang mengutamakan kesehatan talenta digital untuk pertumbuhan bisnis jangka panjang.</p>
+      <button class="btn-primary" style="padding:14px 28px;font-size:15px" onclick="showView('register')">Daftarkan Startup Anda Sekarang</button>
+    </div>
+  </section>
+
+  <footer style="padding:24px 48px;border-top:1px solid #E2E8F0;background:#FFFFFF;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#64748B">
+    <div style="font-weight:800;color:#6366F1">WorkPulse</div>
+    <div>&copy; 2026 WorkPulse Clinical Analytics. Hak cipta dilindungi.</div>
+    <div style="display:flex;gap:18px">
+      <span style="cursor:pointer" onclick="showToast('Pusat Dokumentasi WorkPulse')">Bantuan</span>
+      <span style="cursor:pointer" onclick="showToast('Kebijakan Privasi Data Startup')">Privasi</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ==================== AUTH PAGE ==================== -->
+<div id="auth-page" class="auth-wrapper">
+  <!-- Right Panel -->
+  <div class="auth-right">
+    <div id="auth-form-container"></div>
+  </div>
+</div>
+
+<!-- ==================== DASHBOARD APP ==================== -->
+<div id="dashboard-app">
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <div class="sidebar-logo">
+      <div class="brand">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        WorkPulse
+      </div>
+      <div class="tagline">Startup Culture &amp; Burnout Index</div>
+    </div>
+    <div class="sidebar-nav">
+      <button class="nav-item active" onclick="navigate('home')" data-page="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Ringkasan Ekosistem
+      </button>
+      <button class="nav-item" onclick="navigate('factor')" data-page="factor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        Profil 6 Pilar
+      </button>
+      <button class="nav-item" onclick="navigate('distribution')" data-page="distribution">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Distribusi Burnout
+      </button>
+      <button class="nav-item" onclick="navigate('comparison')" data-page="comparison">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        Komparasi Benchmark
+      </button>
+      <button class="nav-item" onclick="navigate('umkmrec')" data-page="umkmrec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Startup &amp; Rekomendasi
+      </button>
+      <button class="nav-item" onclick="navigate('formdata')" data-page="formdata">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        Form Asesmen Baru
+      </button>
+    </div>
+    <div class="sidebar-footer">
+      <button class="nav-item" onclick="navigate('profile')" data-page="profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+        Profil Startup
+      </button>
+      <button class="nav-item" onclick="navigate('help')" data-page="help">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Pusat Bantuan
+      </button>
+      <button class="nav-item" style="color:var(--danger)" onclick="showModal('logoutModal')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Keluar Akun
+      </button>
+    </div>
+  </nav>
+
+  <!-- Topbar -->
+  <header id="topbar">
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="hamburger" onclick="toggleSidebar()">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="search-wrap">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Cari startup, sektor, atau lokasi..." id="searchInput" oninput="handleSearch(this.value)">
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <div id="topbarRole" style="font-size:12px;font-weight:700;background:#EEF2FF;color:#6366F1;padding:4px 10px;border-radius:20px">👔 C-Level</div>
+      <button class="icon-btn" onclick="navigate('notifications')" data-page="notifications" title="Notifikasi Sistem">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="notif-badge"></span>
+      </button>
+      <div style="position:relative">
+        <div class="avatar" id="topbarAvatar" onclick="toggleDropdown('profileDrop')">P</div>
+        <div class="dropdown-menu" id="profileDrop" style="right:0;top:calc(100% + 8px)">
+          <div class="dropdown-item" onclick="navigate('profile')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg> Profil Saya</div>
+          <div class="dropdown-item" onclick="showToast('Pengaturan preferensi startup dibuka')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Pengaturan</div>
+          <div class="dropdown-item danger" onclick="showModal('logoutModal')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/></svg> Keluar</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PAGES -->
+  <main id="main">
+
+    <!-- HOME PAGE -->
+    <div class="page active" id="page-home">
+      <div class="welcome-bar">
+        <div>
+          <h2>Selamat Datang, <span class="welcome-name">Startup Member</span>!</h2>
+          <p>Pemantauan denyut budaya kerja &amp; indeks risiko burnout startup per hari ini.</p>
+        </div>
+        <div class="ml-auto">
+          <div class="dropdown-wrap" style="position:relative">
+            <button class="btn-secondary" onclick="toggleDropdown('categoryDrop')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              Filter Sektor Teknologi
+            </button>
+            <div class="dropdown-menu" id="categoryDrop" style="right:0;top:calc(100% + 8px)">
+              <div class="dropdown-item" onclick="filterByKategori('semua')">Semua Sektor</div>
+              <div class="dropdown-item" onclick="filterByKategori('saas')">SaaS &amp; B2B</div>
+              <div class="dropdown-item" onclick="filterByKategori('fintech')">FinTech</div>
+              <div class="dropdown-item" onclick="filterByKategori('edtech')">EdTech</div>
+              <div class="dropdown-item" onclick="filterByKategori('health')">HealthTech</div>
+              <div class="dropdown-item" onclick="filterByKategori('ai')">AI &amp; Machine Learning</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div>
+            <div class="stat-label">Total Startup</div>
+            <div class="stat-value" id="stat-total-umkm">120</div>
+            <div class="stat-sub up">&uarr; +8% kuartal ini</div>
+          </div>
+          <div class="stat-icon blue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div>
+            <div class="stat-label">Budaya Positif (&gt;4.0)</div>
+            <div class="stat-value" id="stat-sehat-pct">38%</div>
+            <div class="stat-sub gray">Dari total populasi</div>
+          </div>
+          <div class="stat-icon green">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div>
+            <div class="stat-label">Indeks Tertinggi</div>
+            <div class="stat-value" id="stat-best-score">4.82</div>
+            <div class="stat-sub gray">Kategori: Budaya Positif</div>
+          </div>
+          <div class="stat-icon orange">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div>
+            <div class="stat-label">Risiko Burnout Tinggi</div>
+            <div class="stat-value" style="color:var(--danger)" id="stat-worst-score">1.85</div>
+            <div class="stat-sub danger">Butuh penataan beban kerja</div>
+          </div>
+          <div class="stat-icon red">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Grid -->
+      <div class="charts-grid">
+        <div class="chart-card">
+          <div class="chart-title">Distribusi Kategori Burnout</div>
+          <div class="chart-sub">Klasifikasi risiko psikologis responden startup</div>
+          <div class="donut-wrap">
+            <canvas id="donutChart"></canvas>
+            <div class="donut-center">
+              <div class="big" id="donut-total">120</div>
+              <div class="small">STARTUP</div>
+            </div>
+          </div>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#EF4444"></div><span id="legend-burnout-tinggi">Risiko Tinggi (10)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#F59E0B"></div><span id="legend-waspada">Waspada (26)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#3B82F6"></div><span id="legend-stabil">Kondisi Stabil (50)</span></div>
+            <div class="legend-item"><div class="legend-dot" style="background:#10B981"></div><span id="legend-positif">Budaya Positif (34)</span></div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title">Performa 6 Pilar Budaya Kerja</div>
+          <div class="chart-sub">Metrik agregat rata-rata skala 0–5 seluruh startup teknologi</div>
+          <div style="height:280px;margin-top:16px">
+            <canvas id="barChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Insights Banner -->
+      <div class="ai-banner">
+        <div class="ai-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 3-6 3-3 6-3-6-6-3 6-3z"/></svg>
+        </div>
+        <div style="flex:1">
+          <div class="ai-badge">ANALISIS SISTEMIK REAL-TIME</div>
+          <div class="ai-text">&ldquo;Mayoritas tim developer melaporkan penurunan skor pada pilar <strong>Beban Kerja (Workload)</strong> dan <strong>Kesejahteraan Mental</strong> saat fase perilisan fitur kuartalan, menandakan perlunya evaluasi kapasitas sprint.&rdquo;</div>
+          <div class="ai-links">
+            <span class="ai-link" onclick="navigate('umkmrec')">Lihat Rekomendasi Solusi &rarr;</span>
+            <span class="ai-link" onclick="exportData()">Unduh Laporan Audit (CSV) &darr;</span>
+          </div>
+        </div>
+        <div class="ai-trend">
+          <div class="ai-trend-label">RERATA RETENSI TALENTA</div>
+          <div class="ai-trend-val">+5.6% Stabilitas Tim</div>
+        </div>
+      </div>
+    </div>
+    <!-- END HOME -->
+
+    <!-- FACTOR PROFILE PAGE -->
+    <div class="page" id="page-factor">
+      <div class="page-header" style="margin-bottom:20px">
+        <h1>Profil 6 Pilar Budaya Organisasi</h1>
+        <p>Analisis diagnostik efektivitas iklim kerja dan mitigasi kelelahan sistemik pada startup teknologi.</p>
+      </div>
+
+      <div class="factor-grid">
+        <div class="spider-card">
+          <div class="chart-title">Analisis Radar 6 Pilar</div>
+          <div class="chart-sub">PEMETAAN KESEIMBANGAN BUDAYA STARTUP</div>
+          <div style="height:320px;margin-top:10px">
+            <canvas id="spiderChart"></canvas>
+          </div>
+        </div>
+
+        <div class="factor-cards">
+          <div class="factor-card">
+            <div class="factor-card-header">
+              <div class="factor-icon" style="background:#EEF2FF;color:#6366F1">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              </div>
+              <span class="factor-badge badge-optimal">OPTIMAL</span>
+            </div>
+            <div class="factor-name">VISI &amp; TRANSPARANSI (VT)</div>
+            <div class="factor-score">3.82<span> / 5.0</span></div>
+            <div class="factor-dev">Std. Deviasi: 0.42</div>
+          </div>
+
+          <div class="factor-card">
+            <div class="factor-card-header">
+              <div class="factor-icon" style="background:#ECFDF5;color:#10B981">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+              </div>
+              <span class="factor-badge badge-good">BAIK</span>
+            </div>
+            <div class="factor-name">KEPEMIMPINAN (KK)</div>
+            <div class="factor-score">3.45<span> / 5.0</span></div>
+            <div class="factor-dev">Std. Deviasi: 0.58</div>
+          </div>
+
+          <div class="factor-card">
+            <div class="factor-card-header">
+              <div class="factor-icon" style="background:#E0F2FE;color:#0EA5E9">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+              </div>
+              <span class="factor-badge badge-optimal">OPTIMAL</span>
+            </div>
+            <div class="factor-name">FASILITAS &amp; INFRA (FI)</div>
+            <div class="factor-score">3.65<span> / 5.0</span></div>
+            <div class="factor-dev">Std. Deviasi: 0.51</div>
+          </div>
+
+          <div class="factor-card">
+            <div class="factor-card-header">
+              <div class="factor-icon" style="background:#FFE4E6;color:#F43F5E">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              </div>
+              <span class="factor-badge badge-critical">KRITIS</span>
+            </div>
+            <div class="factor-name">BEBAN KERJA (BK)</div>
+            <div class="factor-score">2.45<span> / 5.0</span></div>
+            <div class="factor-dev">Std. Deviasi: 0.74</div>
+          </div>
+
+          <div class="factor-card">
+            <div class="factor-card-header">
+              <div class="factor-icon" style="background:#EDE9FE;color:#8B5CF6">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span class="factor-badge badge-low">WASPADA</span>
+            </div>
+            <div class="factor-name">KESEJAHTERAAN MENTAL (KM)</div>
+            <div class="factor-score">2.78<span> / 5.0</span></div>
+            <div class="factor-dev">Std. Deviasi: 0.69</div>
+          </div>
+
+          <div class="factor-card">
+            <div class="factor-card-header">
+              <div class="factor-icon" style="background:#FEF3C7;color:#F59E0B">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              </div>
+              <span class="factor-badge badge-average">STABIL</span>
+            </div>
+            <div class="factor-name">KOMPENSASI &amp; KARIR (KP)</div>
+            <div class="factor-score">3.30<span> / 5.0</span></div>
+            <div class="factor-dev">Std. Deviasi: 0.62</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px">
+        <div class="card">
+          <div class="chart-title" style="margin-bottom:14px">Ringkasan Eksekutif &amp; Konsultasi Ahli</div>
+          <div class="exec-grid">
+            <div>
+              <p style="font-size:13px;color:#334155;line-height:1.6">
+                Pilar <strong>Visi &amp; Transparansi</strong> dan <strong>Fasilitas</strong> berada pada level sangat baik. Namun, terjadi disparitas signifikan pada pilar <strong>Beban Kerja (2.45)</strong> yang menjadi pemicu utama risiko kelelahan dan turnover talenta kunci.
+              </p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px">
+                <div class="priority-box">
+                  <div class="priority-label">PRIORITAS INTERVENSI</div>
+                  <div class="priority-text">Restrukturisasi jam lembur sprint &amp; jam hening komunikasi malam hari.</div>
+                </div>
+                <div class="strength-box">
+                  <div class="strength-label">KEKUATAN UTAMA</div>
+                  <div class="strength-text">Kejelasan visi founder dan kelayakan perangkat kerja engineering.</div>
+                </div>
+              </div>
+            </div>
+            <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:20px;text-align:center">
+              <div style="font-size:11px;font-weight:700;color:#64748B">INDEKS BURNOUT RATIO</div>
+              <div style="font-size:28px;font-weight:800;color:#EF4444;margin:6px 0">2.62<span style="font-size:13px;color:#94A3B8">/5</span></div>
+              <div style="font-size:11.5px;color:#DC2626;font-weight:600">Ambang Waspada Gejala</div>
+            </div>
+            <div class="consult-card">
+              <div style="font-size:13.5px;font-weight:700;color:#0F172A">Konsultasi Budaya Tim</div>
+              <div style="font-size:12px;color:#64748B;margin:4px 0 12px;line-height:1.4">Diskusikan hasil asesmen bersama konsultan WorkPulse untuk strategi retensi karyawan.</div>
+              <button class="btn-consult" onclick="window.open('https://wa.me/6281953203518?text=Halo%20WorkPulse%2C%20saya%20ingin%20konsultasi%20mengenai%20asesmen%20budaya%20kerja%20startup.','_blank')">Konsultasi via WhatsApp</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END FACTOR -->
+
+    <!-- DISTRIBUTION PAGE -->
+    <div class="page" id="page-distribution">
+      <div class="page-header" style="margin-bottom:20px">
+        <h1>Distribusi Skor Budaya &amp; Burnout</h1>
+        <p>Analisis frekuensi persebaran skor kesehatan organisasi dan anomali data di ekosistem startup.</p>
+      </div>
+
+      <div class="dist-grid">
+        <div>
+          <div class="card" style="margin-bottom:20px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+              <div>
+                <div class="chart-title">Frekuensi Sebaran Skor Indeks</div>
+                <div class="chart-sub">Uji Normalitas Shapiro-Wilk: W=0.982 (Distribusi Valid)</div>
+              </div>
+              <div style="display:flex;gap:8px">
+                <span id="dist-populasi" style="background:#EEF2FF;color:#6366F1;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px">Populasi: 120</span>
+                <span style="background:#ECFDF5;color:#10B981;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px">&mu;: 3.24</span>
+              </div>
+            </div>
+            <div style="height:220px">
+              <canvas id="histChart"></canvas>
+            </div>
+          </div>
+
+          <div class="box-card">
+            <div class="box-header">
+              <div>
+                <div class="chart-title">Box-and-Whisker Summary</div>
+                <div class="chart-sub">Perhitungan Kuartil &amp; Median Skor Budaya Kerja</div>
+              </div>
+              <div style="text-align:right">
+                <div class="median-score">3.32</div>
+                <div class="median-label">MEDIAN SKOR</div>
+              </div>
+            </div>
+            <div class="boxplot-wrap">
+              <div class="boxplot-line"></div>
+              <div class="boxplot-box"></div>
+              <div class="boxplot-median"></div>
+            </div>
+            <div class="quartile-grid">
+              <div class="quartile-item"><div class="quartile-label">Kuartil 1 (Q1)</div><div class="quartile-val">2.85</div></div>
+              <div class="quartile-item"><div class="quartile-label">Median (Q2)</div><div class="quartile-val primary">3.32</div></div>
+              <div class="quartile-item"><div class="quartile-label">Kuartil 3 (Q3)</div><div class="quartile-val">3.90</div></div>
+              <div class="quartile-item"><div class="quartile-label">Rentang IQR</div><div class="quartile-val">1.05</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="outlier-card">
+            <div class="outlier-header">
+              <div class="outlier-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:13.5px;font-weight:700;color:#0F172A">Anomali Burnout (&gt;2.5 SD)</div>
+                <div style="font-size:11.5px;color:#64748B">Startup dengan indikator stres ekstrem</div>
+              </div>
+            </div>
+            <table class="outlier-table">
+              <thead><tr><th>ID STARTUP</th><th style="text-align:right">Z-SCORE</th></tr></thead>
+              <tbody>
+                <tr><td>#WP-016 (MicroLend)</td><td class="z-score">3.62</td></tr>
+                <tr><td>#WP-030 (QuickDelivery)</td><td class="z-score">3.41</td></tr>
+                <tr><td>#WP-005 (OmniCommerce)</td><td class="z-score">2.95</td></tr>
+              </tbody>
+            </table>
+            <button class="btn-secondary" style="width:100%;margin-top:16px;justify-content:center" onclick="exportData()">
+              Ekspor Data Anomali (CSV)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END DISTRIBUTION -->
+
+    <!-- COMPARISON PAGE -->
+    <div class="page" id="page-comparison">
+      <div class="page-header-row">
+        <div>
+          <h1>Komparasi Realisasi &amp; Benchmark</h1>
+          <p>Perbandingan realisasi performa 6 pilar budaya terhadap standar sehat industri teknologi.</p>
+        </div>
+        <button class="btn-primary" onclick="exportData()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Ekspor Benchmark
+        </button>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="factor-bar-card">
+          <div class="factor-row">
+            <div class="factor-row-header">
+              <div><div class="factor-row-name">Visi &amp; Transparansi (VT)</div><div class="factor-row-sub">Pilar C-Level</div></div>
+              <div class="factor-row-score">3.82</div>
+            </div>
+            <div class="realization-label">Realisasi Real-time <span style="float:right;color:#64748B">Target Sehat: 4.00</span></div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:95%"></div></div>
+          </div>
+
+          <div class="factor-row">
+            <div class="factor-row-header">
+              <div><div class="factor-row-name">Kualitas Kepemimpinan (KK)</div><div class="factor-row-sub">Pilar Staf</div></div>
+              <div class="factor-row-score">3.45</div>
+            </div>
+            <div class="realization-label">Realisasi Real-time <span style="float:right;color:#64748B">Target Sehat: 4.00</span></div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:86%"></div></div>
+          </div>
+
+          <div class="factor-row">
+            <div class="factor-row-header">
+              <div><div class="factor-row-name">Fasilitas &amp; Infrastruktur (FI)</div><div class="factor-row-sub">Pilar C-Level</div></div>
+              <div class="factor-row-score">3.65</div>
+            </div>
+            <div class="realization-label">Realisasi Real-time <span style="float:right;color:#64748B">Target Sehat: 4.00</span></div>
+            <div class="bar-track"><div class="bar-fill blue" style="width:91%"></div></div>
+          </div>
+
+          <div class="factor-row">
+            <div class="factor-row-header">
+              <div><div class="factor-row-name">Beban Kerja / Workload (BK)</div><div class="factor-row-sub">Pilar Staf</div></div>
+              <div class="factor-row-score red">2.45</div>
+            </div>
+            <div class="realization-label">Realisasi Real-time <span style="float:right;color:#64748B">Target Sehat: 3.80</span></div>
+            <div class="bar-track"><div class="bar-fill red" style="width:64%"></div></div>
+          </div>
+
+          <div class="factor-row">
+            <div class="factor-row-header">
+              <div><div class="factor-row-name">Kesejahteraan Mental (KM)</div><div class="factor-row-sub">Pilar Staf</div></div>
+              <div class="factor-row-score red">2.78</div>
+            </div>
+            <div class="realization-label">Realisasi Real-time <span style="float:right;color:#64748B">Target Sehat: 4.00</span></div>
+            <div class="bar-track"><div class="bar-fill red" style="width:69%"></div></div>
+          </div>
+
+          <div class="factor-row">
+            <div class="factor-row-header">
+              <div><div class="factor-row-name">Kompensasi &amp; Karir (KP)</div><div class="factor-row-sub">Pilar C-Level</div></div>
+              <div class="factor-row-score">3.30</div>
+            </div>
+            <div class="realization-label">Realisasi Real-time <span style="float:right;color:#64748B">Target Sehat: 3.90</span></div>
+            <div class="bar-track"><div class="bar-fill teal" style="width:84%"></div></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="performer-card">
+            <div class="performer-badge badge-top">&uarr; BENCHMARK BUDAYA SEHAT</div>
+            <div class="performer-id">MedikaAI Analytics (ID 004)</div>
+            <div class="performer-score">4.82<span> / 5.00</span></div>
+            <div class="performer-status status-excellent">&check; Status: Budaya Kerja Positif</div>
+          </div>
+
+          <div class="performer-card" style="border-left:4px solid var(--danger)">
+            <div class="performer-badge badge-critical-action">&Delta; PERLU TINDAKAN SEGERA</div>
+            <div class="performer-id">QuickDelivery Express (ID 030)</div>
+            <div class="performer-score">1.85<span> / 5.00</span></div>
+            <div class="performer-status status-intervention">! Status: Risiko Burnout Tinggi</div>
+          </div>
+
+          <div class="gap-card">
+            <div class="gap-title">Analisis Kesenjangan (Gap Analysis)</div>
+            <div style="font-size:11.5px;color:#64748B">Disparitas Tertinggi: Beban Kerja Staf</div>
+            <div class="gap-avg-val">35.5%</div>
+            <div class="gap-bar-track"><div class="gap-bar-fill"></div></div>
+            <div class="gap-text">Kesenjangan sebesar 35.5% antara ekspektasi target C-Level dan beban jam kerja riil staf teknis.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END COMPARISON -->
+
+    <!-- STARTUP & RECOMMENDATIONS PAGE -->
+    <div class="page" id="page-umkmrec">
+      <div class="page-header-row">
+        <div>
+          <h1>Detail Data Startup &amp; Evaluasi Budaya</h1>
+          <p class="table-count">Menampilkan data populasi startup terdaftar di WorkPulse</p>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn-primary" onclick="navigate('formdata')">+ Tambah Asesmen Baru</button>
+        </div>
+      </div>
+
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="overflow-x:auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NAMA STARTUP</th>
+                <th>LOKASI</th>
+                <th>SEKTOR TEKNOLOGI</th>
+                <th>PENDANAAN (IDR)</th>
+                <th>SKOR BUDAYA</th>
+                <th>INDIKATOR UTAMA</th>
+                <th>REKOMENDASI AKSI</th>
+              </tr>
+            </thead>
+            <tbody id="umkmTableBody">
+              <tr><td colspan="8" style="text-align:center;padding:32px;color:var(--gray-400)">Memuat dataset WorkPulse...</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination">
+          <div class="pagination-info" id="paginationInfo">Halaman 1 dari 5</div>
+          <div class="pagination-btns" id="paginationBtns">
+            <button class="page-btn">&lsaquo;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Intervensi Strategis -->
+      <div style="margin-top:32px">
+        <div style="margin-bottom:14px">
+          <h2 style="font-size:18px;font-weight:800;color:#0F172A">Rencana Intervensi &amp; Protokol Mitigasi Burnout</h2>
+          <p style="font-size:12.5px;color:#64748B">Rekomendasi taktis berbasis algoritma WorkPulse untuk menstabilkan kondisi psikologis tim.</p>
+        </div>
+
+        <div class="pipa-grid">
+          <div class="pipa-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <span class="pipa-priority high">PRIORITAS TINGGI</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+            </div>
+            <div class="pipa-title-text">Audit Jam Lembur &amp; Sprint Retrospektif</div>
+            <div class="pipa-desc">Lakukan evaluasi terhadap jam commit developer di luar batas kerja wajar. Terapkan batas maksimum 40 jam kerja per minggu.</div>
+            <div class="pipa-footer">
+              <span style="color:#64748B">ETA: 48 Jam</span>
+              <span class="pipa-link" onclick="showProtokol('bk')">Terapkan Protokol &rarr;</span>
+            </div>
+          </div>
+
+          <div class="pipa-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <span class="pipa-priority mid">PRIORITAS SEDANG</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="pipa-title-text">Inisiatif Psychological Safety &amp; 1-on-1</div>
+            <div class="pipa-desc">Sediakan ruang dialog terbuka tanpa intimidasi. Beri hak cuti mental terencana bagi anggota tim yang baru melewati perilisan intensif.</div>
+            <div class="pipa-footer">
+              <span style="color:#64748B">ETA: 7 Hari</span>
+              <span class="pipa-link" onclick="showProtokol('km')">Terapkan Protokol &rarr;</span>
+            </div>
+          </div>
+
+          <div class="pipa-card">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <span class="pipa-priority maintain">PEMELIHARAAN</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="pipa-title-text">Transparansi Runway &amp; Townhall Berkala</div>
+            <div class="pipa-desc">Jaga keterbukaan metrik pertumbuhan dan stabilitas finansial startup kepada seluruh jajaran staf untuk meredam kecemasan karir.</div>
+            <div class="pipa-footer">
+              <span style="color:#10B981">&check; Terjadwal</span>
+              <span class="pipa-link" onclick="showProtokol('vt')">Terapkan Protokol &rarr;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card metrics-grid" style="padding:0">
+          <div class="metric-item"><div class="metric-label">RATA-RATA RESPON RETENSI</div><div class="metric-val dark" id="rec-resp-time">8.4 Min</div></div>
+          <div class="metric-item"><div class="metric-label">TINGKAT KEPATUHAN BUDAYA</div><div class="metric-val success" id="rec-compliance">94.8%</div></div>
+          <div class="metric-item"><div class="metric-label">PERINGATAN BURNOUT KRITIS</div><div class="metric-val danger" id="rec-critical">3 Peringatan</div></div>
+          <div class="metric-item" style="border-right:none"><div class="metric-label">PEMINDAIAN BERKALA BERIKUTNYA</div><div class="metric-val dark" id="rec-next-scan">18:00 WIB</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- END STARTUP REC -->
+
+    <!-- FORM DATA PAGE -->
+    <div class="page" id="page-formdata">
+      <div class="page-header" style="margin-bottom:20px">
+        <h1>Formulir Asesmen Budaya Kerja Baru</h1>
+        <p>Evaluasi 6 Pilar WorkPulse – lengkapi seluruh indikator untuk memperoleh profil risiko burnout yang akurat.</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-main" id="formMainContent">
+          <!-- Injected dynamically by form.js -->
+        </div>
+
+        <div>
+          <div class="live-calc">
+            <div class="live-badge">REAL-TIME ASSESSMENT</div>
+            <div id="calcRows"></div>
+            <div class="health-category">
+              <div class="health-cat-label">STATUS KESEHATAN BUDAYA</div>
+              <div class="health-cat-val" id="health-cat">--</div>
+              <div class="health-cat-sub" id="health-sub">Isi semua indikator untuk melihat hasil</div>
+            </div>
+            <button class="btn-primary" style="width:100%;justify-content:center;margin-bottom:10px" id="btnSaveEval" onclick="saveEvaluasi()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              Simpan &amp; Verifikasi Evaluasi
+            </button>
+            <button class="btn-secondary" style="width:100%;justify-content:center" onclick="showToast('Pratinjau kuesioner aktif')">Pratinjau Evaluasi</button>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-title">Pedoman Asesmen WorkPulse</div>
+            <div class="guide-text">Respon yang Anda berikan dilindungi enkripsi dan dievaluasi secara agregat untuk objektivitas analitik startup Anda.</div>
+            <span class="guide-link" onclick="showToast('Mengunduh panduan evaluasi PDF...','success')">UNDUH PANDUAN LENGKAP &nearr;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END FORM DATA -->
+
+    <!-- NOTIFICATIONS PAGE -->
+    <div class="page" id="page-notifications">
+      <div class="notif-header">
+        <h2>
+          <button class="back-btn" onclick="navigate('home')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          Pusat Notifikasi &amp; Peringatan
+        </h2>
+        <div class="avatar" id="notifAvatar">P</div>
+      </div>
+
+      <div class="notif-hero-grid">
+        <div class="notif-welcome-card">
+          <div>
+            <h3 id="notif-halo">Halo, Startup Member!</h3>
+            <p>Terdapat <span id="notif-badge-count-text">3</span> pembaruan metrik penting yang memerlukan peninjauan hari ini di WorkPulse.</p>
+          </div>
+          <div class="notif-badge-big">
+            <div class="num" id="notif-badge-num">03</div>
+            <div class="lbl">NOTIFIKASI BARU</div>
+          </div>
+        </div>
+        <div class="notif-status-card">
+          <div class="lbl">STATUS DIAGNOSTIK</div>
+          <div class="status">Sistem Normal</div>
+        </div>
+      </div>
+
+      <div class="notif-list-header">
+        <h4>AKTIVITAS TERBARU</h4>
+        <a class="mark-all" onclick="showToast('Seluruh notifikasi ditandai dibaca','success')">Tandai semua dibaca</a>
+      </div>
+
+      <div class="notif-items" id="notif-list-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- HELP PAGE -->
+    <div class="page" id="page-help">
+      <div class="notif-header" style="margin-bottom:16px">
+        <h2>
+          <button class="back-btn" onclick="navigate('home')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          Pusat Bantuan &amp; Metodologi WorkPulse
+        </h2>
+        <div class="avatar" id="helpAvatar">P</div>
+      </div>
+
+      <div class="card" style="margin-bottom:20px;padding:32px">
+        <h3 style="font-size:22px;font-weight:800;color:#0F172A;margin-bottom:8px">Bagaimana WorkPulse Menilai Risiko Burnout?</h3>
+        <p style="font-size:14px;color:#64748B;line-height:1.6;margin-bottom:20px">
+          WorkPulse mengukur 6 pilar budaya organisasi secara seimbang. Skor dinormalisasi pada skala 0–5. Ketika skor pilar <em>Beban Kerja</em> dan <em>Kesejahteraan Mental</em> berada di bawah 2.5, sistem akan menerbitkan peringatan dini untuk mencegah pengunduran diri talenta teknologi secara massal.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:18px">
+            <div style="font-weight:700;color:#0F172A;margin-bottom:4px">Kategori Budaya Positif</div>
+            <div style="font-size:12.5px;color:#64748B">Skor &ge; 4.00: Lingkungan kerja suportif, transparan, dan ritme kerja seimbang.</div>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:18px">
+            <div style="font-weight:700;color:#0F172A;margin-bottom:4px">Kategori Waspada Burnout</div>
+            <div style="font-size:12.5px;color:#64748B">Skor 2.00–2.99: Adanya tanda-tanda kelelahan kronis dan tekanan deadline ekstrem.</div>
+          </div>
+          <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:12px;padding:18px">
+            <div style="font-weight:700;color:#0F172A;margin-bottom:4px">Risiko Burnout Tinggi</div>
+            <div style="font-size:12.5px;color:#64748B">Skor &lt; 2.00: Krisis iklim kerja yang berpotensi tinggi memicu turnover massal.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE PAGE -->
+    <div class="page" id="page-profile">
+      <div class="welcome-bar">
+        <div>
+          <h2>Profil Startup &amp; Keanggotaan</h2>
+          <p>Informasi entitas startup, sektor teknologi, dan data partisipasi asesmen.</p>
+        </div>
+      </div>
+      <div id="profile-content">
+        <div style="text-align:center;padding:48px;color:var(--gray-400)">Memuat profil startup...</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODALS -->
+<div class="modal-backdrop" id="logoutModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Konfirmasi Keluar Akun</div>
+      <button class="modal-close" onclick="hideModal('logoutModal')">&times;</button>
+    </div>
+    <div class="modal-body">Apakah Anda yakin ingin keluar dari WorkPulse? Sesi Anda akan diakhiri dengan aman.</div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="hideModal('logoutModal')">Batal</button>
+      <button class="btn-primary" onclick="hideModal('logoutModal');setTimeout(()=>showView('logout'),200)">Keluar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="saveModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">&check; Evaluasi Berhasil Disimpan</div>
+      <button class="modal-close" onclick="hideModal('saveModal')">&times;</button>
+    </div>
+    <div class="modal-body">Data kuesioner budaya startup telah divalidasi. Metrik indeks kesehatan telah diperbarui di dashboard utama.</div>
+    <div class="modal-footer">
+      <button class="btn-secondary" onclick="hideModal('saveModal')">Tutup</button>
+      <button class="btn-primary" onclick="navigate('home');hideModal('saveModal')">Buka Dashboard</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toastMsg">Berhasil</span>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/form.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

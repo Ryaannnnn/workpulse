@@ -1,0 +1,435 @@
+/* ============================================================
+   WorkPulse — Modern Light Mode Auth & Landing Styles
+   Minimalist, breathable layout inspired by Linear, Stripe & Vercel
+   ============================================================ */
+
+:root {
+  --wp-bg: #F8FAFC;
+  --wp-card: #FFFFFF;
+  --wp-border: #E2E8F0;
+  --wp-text-main: #0F172A;
+  --wp-text-muted: #64748B;
+  --wp-primary: #6366F1;
+  --wp-primary-hover: #4F46E5;
+  --wp-primary-subtle: #EEF2FF;
+  --wp-accent: #2563EB;
+  --wp-radius-sm: 8px;
+  --wp-radius: 12px;
+  --wp-radius-xl: 16px;
+  --wp-shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --wp-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Base Wrapper */
+.auth-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--wp-bg);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: var(--wp-text-main);
+}
+
+/* Left panel (Hero / Brand Context) */
+.auth-left {
+  width: 440px;
+  flex-shrink: 0;
+  background: linear-gradient(175deg, #1E1B4B 0%, #0F172A 100%);
+  padding: 56px 44px;
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid #1E293B;
+}
+
+.auth-left::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, rgba(99, 102, 241, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.auth-brand {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.auth-brand span {
+  color: #818CF8;
+}
+
+.auth-brand-tagline {
+  font-size: 14px;
+  font-weight: 600;
+  color: #C7D2FE;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.auth-brand-desc {
+  font-size: 13.5px;
+  color: #94A3B8;
+  line-height: 1.6;
+}
+
+.auth-features {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.auth-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--wp-radius);
+  backdrop-filter: blur(8px);
+}
+
+.auth-feature-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(99, 102, 241, 0.2);
+  color: #818CF8;
+  border-radius: var(--wp-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.auth-feature-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: #F8FAFC;
+}
+
+.auth-feature-desc {
+  font-size: 12px;
+  color: #94A3B8;
+  line-height: 1.4;
+}
+
+/* Form Panel (Clean Minimalist Form Card) */
+.auth-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  background: var(--wp-bg);
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 480px;
+  background: #FFFFFF;
+  padding: 40px;
+  border-radius: var(--wp-radius-xl);
+  border: 1px solid var(--wp-border);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+}
+
+.auth-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--wp-text-main);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+  font-size: 13.5px;
+  color: var(--wp-text-muted);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* Role Selector */
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.role-card {
+  border: 1px solid var(--wp-border);
+  background: var(--wp-bg);
+  border-radius: var(--wp-radius);
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.role-card:hover {
+  border-color: #CBD5E1;
+  background: #F1F5F9;
+}
+
+.role-card.selected {
+  border-color: var(--wp-primary);
+  background: var(--wp-primary-subtle);
+  box-shadow: 0 0 0 1px var(--wp-primary);
+}
+
+.role-card-icon {
+  width: 36px;
+  height: 36px;
+  background: #E2E8F0;
+  border-radius: var(--wp-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  color: var(--wp-text-muted);
+  transition: all 0.2s ease;
+}
+
+.role-card.selected .role-card-icon {
+  background: var(--wp-primary);
+  color: #FFFFFF;
+}
+
+.role-card-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--wp-text-main);
+  margin-bottom: 2px;
+}
+
+.role-card-desc {
+  font-size: 11.5px;
+  color: var(--wp-text-muted);
+}
+
+/* Form Groups & Inputs */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group-half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.field-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.forgot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.forgot-link {
+  font-size: 12px;
+  color: var(--wp-primary);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+
+.forgot-link:hover {
+  color: var(--wp-primary-hover);
+  text-decoration: underline;
+}
+
+.field-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-wrap svg {
+  position: absolute;
+  left: 14px;
+  color: #94A3B8;
+  pointer-events: none;
+}
+
+.field-wrap input,
+.field-wrap select {
+  width: 100%;
+  padding: 10px 14px 10px 42px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: var(--wp-text-main);
+  background: #FFFFFF;
+  border: 1px solid var(--wp-border);
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.field-wrap input:focus,
+.field-wrap select:focus {
+  border-color: var(--wp-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.field-eye {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+.field-eye:hover {
+  color: var(--wp-text-main);
+}
+
+.field-number-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-prefix {
+  position: absolute;
+  left: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748B;
+  pointer-events: none;
+}
+
+.field-number-wrap input {
+  width: 100%;
+  padding: 10px 14px 10px 48px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: var(--wp-text-main);
+  background: #FFFFFF;
+  border: 1px solid var(--wp-border);
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.field-number-wrap input:focus {
+  border-color: var(--wp-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.field-hint {
+  font-size: 11.5px;
+  color: var(--wp-text-muted);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+.checkbox-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.checkbox-wrap input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: var(--wp-primary);
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-size: 12px;
+  color: var(--wp-text-muted);
+  line-height: 1.4;
+}
+
+.checkbox-label a {
+  color: var(--wp-primary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.checkbox-label a:hover {
+  text-decoration: underline;
+}
+
+/* Primary Auth Action Button */
+.btn-auth {
+  width: 100%;
+  padding: 11px 18px;
+  background: var(--wp-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-auth:hover {
+  background: var(--wp-primary-hover);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.btn-auth:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-link-text {
+  text-align: center;
+  font-size: 13px;
+  color: var(--wp-text-muted);
+  margin-top: 20px;
+}
+
+.auth-link-text a {
+  color: var(--wp-primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.auth-link-text a:hover {
+  text-decoration: underline;
+}
+
+.auth-form-wrap button[onclick*="showView"]:hover {
+  color: var(--wp-primary) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 860px) {
+  .auth-left { display: none; }
+  .auth-right { padding: 36px 20px; }
+}
