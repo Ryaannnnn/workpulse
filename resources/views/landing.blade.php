@@ -2,209 +2,702 @@
 
 @section('title', 'WorkPulse – Platform Asesmen Budaya Kerja & Risiko Burnout Startup')
 
+@push('styles')
+<style>
+    .lp-header {
+        background-color: var(--bg-page);
+        border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .lp-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        min-height: 76px;
+    }
+
+    .lp-nav {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .lp-nav a {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--ink-secondary);
+        text-decoration: none;
+        transition: color 150ms ease;
+    }
+
+    .lp-nav a:hover {
+        color: var(--ink-primary);
+    }
+
+    .lp-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    .lp-text-link {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--ink-primary);
+        text-decoration: none;
+        transition: color 150ms ease;
+    }
+
+    .lp-text-link:hover {
+        color: var(--ink-secondary);
+    }
+
+    /* Hero */
+    .lp-hero {
+        padding-block: 5.5rem 6.5rem;
+    }
+
+    .lp-hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .lp-hero-title {
+        font-family: var(--font-serif);
+        font-size: clamp(2.5rem, 4.4vw, 3.625rem);
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+        color: var(--ink-primary);
+        margin-bottom: 1.5rem;
+    }
+
+    .lp-hero-desc {
+        font-size: 1.0625rem;
+        line-height: 1.65;
+        color: var(--ink-secondary);
+        max-width: 34rem;
+        margin-bottom: 2rem;
+    }
+
+    .lp-hero-cta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .lp-metrics-strip {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        padding-top: 1.75rem;
+        border-top: 1px solid var(--border-hairline);
+    }
+
+    .lp-metric-val {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--ink-primary);
+    }
+
+    .lp-metric-lbl {
+        font-size: 0.8125rem;
+        color: var(--ink-secondary);
+        margin-top: 0.25rem;
+    }
+
+    /* Hero Preview Frame */
+    .lp-preview-frame {
+        background-color: var(--bg-subtle);
+        border: 1px solid var(--border-hairline);
+        border-radius: var(--radius-2xl);
+        padding: 1.5rem;
+    }
+
+    .lp-preview-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: 14px;
+        padding: 1.75rem;
+        box-shadow: var(--shadow-editorial);
+    }
+
+    .lp-preview-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-hairline);
+        margin-bottom: 1.25rem;
+    }
+
+    .lp-preview-label {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--ink-secondary);
+    }
+
+    .lp-live-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.1875rem 0.625rem;
+        border-radius: 9999px;
+        background-color: var(--accent-forest-soft);
+        color: var(--accent-forest);
+        font-size: 0.75rem;
+        font-weight: 600;
+    }
+
+    .lp-live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--accent-forest);
+    }
+
+    .lp-preview-score-row {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .lp-preview-score {
+        font-size: 2.375rem;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--ink-primary);
+    }
+
+    .lp-preview-score span {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--ink-muted);
+    }
+
+    .lp-preview-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9375rem;
+    }
+
+    .lp-bar-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--ink-primary);
+        margin-bottom: 0.375rem;
+    }
+
+    .lp-bar-track {
+        height: 6px;
+        background-color: var(--bg-track);
+        border-radius: 9999px;
+        overflow: hidden;
+    }
+
+    .lp-bar-fill {
+        height: 100%;
+        background-color: var(--ink-primary);
+        border-radius: 9999px;
+    }
+
+    .lp-preview-foot {
+        margin-top: 1.375rem;
+        padding-top: 0.875rem;
+        border-top: 1px solid var(--border-hairline);
+        font-size: 0.75rem;
+        color: var(--ink-muted);
+    }
+
+    /* Editorial Sections */
+    .lp-section {
+        padding-block: 6rem;
+        border-top: 1px solid var(--border-hairline);
+    }
+
+    .lp-section-surface {
+        background-color: var(--bg-surface);
+    }
+
+    .lp-section-head {
+        max-width: 40rem;
+        margin-bottom: 3.25rem;
+    }
+
+    .lp-section-title {
+        font-family: var(--font-serif);
+        font-size: clamp(1.875rem, 3vw, 2.375rem);
+        font-weight: 600;
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+        color: var(--ink-primary);
+        margin-bottom: 0.875rem;
+    }
+
+    .lp-section-sub {
+        font-size: 1rem;
+        color: var(--ink-secondary);
+        line-height: 1.6;
+    }
+
+    /* 3-Column Editorial Feature Grid */
+    .lp-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2.25rem;
+    }
+
+    .lp-feature-item {
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-control);
+    }
+
+    .lp-num {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--ink-muted);
+        margin-bottom: 0.875rem;
+    }
+
+    .lp-feature-title {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: var(--ink-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .lp-feature-desc {
+        font-size: 0.9375rem;
+        color: var(--ink-secondary);
+        line-height: 1.6;
+    }
+
+    /* 6 Pillars Grid */
+    .lp-pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    .lp-pillar-card {
+        background-color: var(--bg-page);
+        border: 1px solid var(--border-hairline);
+        border-radius: var(--radius-xl);
+        padding: 1.75rem;
+    }
+
+    .lp-pillar-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-bottom: 1.125rem;
+    }
+
+    .lp-pillar-code {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--ink-muted);
+    }
+
+    .lp-role-tag {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--ink-secondary);
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        padding: 0.1875rem 0.5625rem;
+        border-radius: 9999px;
+    }
+
+    /* 4 Burnout Categories Grid */
+    .lp-grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem;
+    }
+
+    .lp-tier-card {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: var(--radius-xl);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .lp-tier-range {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--ink-primary);
+        margin-top: 0.25rem;
+    }
+
+    /* Bottom CTA */
+    .lp-cta-box {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-hairline);
+        border-radius: var(--radius-2xl);
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    /* Footer */
+    .lp-footer {
+        border-top: 1px solid var(--border-hairline);
+        padding-block: 2.25rem;
+    }
+
+    .lp-footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-size: 0.8125rem;
+        color: var(--ink-muted);
+    }
+
+    .lp-footer-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .lp-footer-links a {
+        text-decoration: none;
+        transition: color 150ms ease;
+    }
+
+    .lp-footer-links a:hover {
+        color: var(--ink-primary);
+    }
+
+    @media (max-width: 960px) {
+        .lp-nav {
+            display: none;
+        }
+        .lp-hero {
+            padding-block: 3.5rem 4.5rem;
+        }
+        .lp-hero-grid {
+            grid-template-columns: 1fr;
+            gap: 2.75rem;
+        }
+        .lp-grid-3,
+        .lp-pillars-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .lp-grid-4 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .lp-cta-box {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 2rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .lp-section {
+            padding-block: 4rem;
+        }
+        .lp-metrics-strip,
+        .lp-grid-3,
+        .lp-pillars-grid,
+        .lp-grid-4 {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+@endpush
+
 @section('content')
-<div id="landing-page" class="active">
-  <!-- Navbar -->
-  <nav class="landing-nav" style="display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(255,255,255,0.92);border-bottom:1px solid #E2E8F0;position:sticky;top:0;z-index:90;backdrop-filter:blur(8px)">
-    <a href="{{ route('home') }}" class="landing-brand" style="font-size:22px;font-weight:800;color:#6366F1;letter-spacing:-0.03em;display:flex;align-items:center;gap:6px;text-decoration:none">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      WorkPulse
-    </a>
-    <div class="landing-nav-links" style="display:flex;gap:28px">
-      <a class="landing-nav-link" href="#fitur" style="color:#475569;text-decoration:none;font-weight:600;font-size:13.5px">Fitur Asesmen</a>
-      <a class="landing-nav-link" href="#pilar" style="color:#475569;text-decoration:none;font-weight:600;font-size:13.5px">6 Pilar Budaya</a>
-      <a class="landing-nav-link" href="#metodologi" style="color:#475569;text-decoration:none;font-weight:600;font-size:13.5px">Metodologi Klinis</a>
-    </div>
-    <div class="landing-nav-btns" style="display:flex;gap:10px">
-      @auth
-        <a href="{{ route('dashboard') }}" class="btn-primary" style="text-decoration:none;padding:10px 20px;font-size:13.5px">Buka Dashboard</a>
-      @else
-        <a href="{{ route('login') }}" class="btn-secondary" style="text-decoration:none;padding:10px 18px;font-size:13.5px;display:inline-flex;align-items:center">Masuk Akun</a>
-        <a href="{{ route('register') }}" class="btn-primary" style="text-decoration:none;padding:10px 20px;font-size:13.5px;display:inline-flex;align-items:center">Mulai Asesmen Gratis</a>
-      @endauth
-    </div>
-  </nav>
+<div id="landing-page">
+    <!-- Header -->
+    <header class="lp-header">
+        <div class="wp-container lp-header-inner">
+            <a href="{{ route('home') }}" class="wp-brand">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+                <span class="wp-brand-text">WorkPulse</span>
+            </a>
 
-  <!-- Hero Section -->
-  <section class="landing-hero" style="padding:80px 48px;max-width:1100px;margin:0 auto;text-align:center">
-    <div class="hero-content">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;color:#4F46E5;font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;margin-bottom:20px;border:1px solid #C7D2FE">
-        <span style="width:8px;height:8px;border-radius:50%;background:#6366F1"></span>
-        Platform Klinis Diagnostik Budaya Startup #1 Indonesia
-      </div>
-      <h1 style="font-size:46px;font-weight:800;color:#0F172A;line-height:1.2;letter-spacing:-0.03em;margin-bottom:20px">
-        Identifikasi Risiko Burnout &amp; Kelelahan Sistemik<br><span style="color:#6366F1">Sebelum Talenta Terbaik Anda Resign</span>
-      </h1>
-      <p style="font-size:16px;color:#64748B;max-width:760px;margin:0 auto 32px;line-height:1.6">
-        WorkPulse membantu <strong>Founder (C-Level)</strong> dan <strong>Karyawan (Staf)</strong> startup teknologi mendeteksi lingkungan kerja toxic, beban sprint berlebih, dan ketimpangan kompensasi berbasis analisis data objektif 6 pilar budaya.
-      </p>
-      <div style="display:flex;gap:14px;justify-content:center;margin-bottom:48px">
-        <a href="{{ route('register') }}" class="btn-primary" style="text-decoration:none;padding:14px 28px;font-size:15px;display:inline-flex;align-items:center">Mulai Evaluasi Startup Anda</a>
-        <a href="{{ route('login') }}" class="btn-secondary" style="text-decoration:none;padding:14px 24px;font-size:15px;display:inline-flex;align-items:center">Lihat Demo Platform</a>
-      </div>
+            <nav class="lp-nav" aria-label="Navigasi utama">
+                <a href="#fitur">Fitur Asesmen</a>
+                <a href="#pilar">6 Pilar Budaya</a>
+                <a href="#metodologi">Metodologi</a>
+            </nav>
 
-      <!-- Quick Metrics Bar -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:16px;padding:28px;box-shadow:var(--shadow-sm)">
-        <div>
-          <div style="font-size:28px;font-weight:800;color:#0F172A">120+</div>
-          <div style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">Startup Terdaftar</div>
+            <div class="lp-actions">
+                @auth
+                    <a href="{{ route('dashboard') }}" class="wp-btn-primary wp-btn-sm">Buka Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="lp-text-link">Masuk</a>
+                    <a href="{{ route('register') }}" class="wp-btn-primary wp-btn-sm">Mulai Asesmen</a>
+                @endauth
+            </div>
         </div>
-        <div>
-          <div style="font-size:28px;font-weight:800;color:#6366F1">99.4%</div>
-          <div style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">Akurasi Deteksi Burnout</div>
-        </div>
-        <div>
-          <div style="font-size:28px;font-weight:800;color:#10B981">6 Pilar</div>
-          <div style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">Kesehatan Organisasi</div>
-        </div>
-        <div>
-          <div style="font-size:28px;font-weight:800;color:#2563EB">Real-time</div>
-          <div style="font-size:12px;color:#64748B;font-weight:600;margin-top:2px">Analisis Sentimen Tim</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Fitur Asesmen Section -->
-  <section id="fitur" style="padding:70px 48px;max-width:1100px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:44px">
-      <div style="font-size:11px;font-weight:800;color:#6366F1;letter-spacing:0.05em">KAPABILITAS PLATFORM</div>
-      <h2 style="font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-top:6px">Fitur Asesmen Budaya &amp; Burnout Startup</h2>
-      <p style="font-size:14px;color:#64748B;margin-top:4px">Dirancang spesifik untuk dinamika fast-paced tech startup dari tahap Pre-Seed hingga Series A+.</p>
-    </div>
+    <main>
+        <!-- Asymmetric Hero -->
+        <section class="lp-hero">
+            <div class="wp-container lp-hero-grid">
+                <div>
+                    <h1 class="lp-hero-title">
+                        Identifikasi risiko burnout sebelum talenta terbaik Anda pergi.
+                    </h1>
+                    <p class="lp-hero-desc">
+                        WorkPulse membantu Founder (C-Level) dan karyawan teknis startup memetakan kesehatan budaya kerja, beban sprint, serta ketimpangan kompensasi melalui 36 indikator klinis yang objektif.
+                    </p>
+                    <div class="lp-hero-cta">
+                        <a href="{{ route('register') }}" class="wp-btn-primary">Mulai Asesmen</a>
+                        <a href="{{ route('login') }}" class="wp-btn-secondary">Masuk ke Akun</a>
+                    </div>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-      <div class="card" style="padding:28px">
-        <div style="width:44px;height:44px;border-radius:12px;background:#EEF2FF;color:#6366F1;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div style="font-size:16px;font-weight:700;color:#0F172A;margin-bottom:8px">36 Indikator Klinis Terukur</div>
-        <div style="font-size:13px;color:#64748B;line-height:1.6">Kuesioner berbasis skala Likert 1–5 yang mengukur kelelahan emosional, batasan sprint, dan transparansi runway secara presisi.</div>
-      </div>
-      <div class="card" style="padding:28px">
-        <div style="width:44px;height:44px;border-radius:12px;background:#ECFDF5;color:#10B981;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        </div>
-        <div style="font-size:16px;font-weight:700;color:#0F172A;margin-bottom:8px">Evaluasi 2 Sudut Pandang</div>
-        <div style="font-size:13px;color:#64748B;line-height:1.6">Mengintegrasikan visi strategis Founder/C-Level dengan pengalaman riil staf engineering guna mendeteksi blind-spot manajemen.</div>
-      </div>
-      <div class="card" style="padding:28px">
-        <div style="width:44px;height:44px;border-radius:12px;background:#FEF3C7;color:#F59E0B;display:flex;align-items:center;justify-content:center;margin-bottom:18px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
-        <div style="font-size:16px;font-weight:700;color:#0F172A;margin-bottom:8px">Deteksi Dini Risiko Burnout</div>
-        <div style="font-size:13px;color:#64748B;line-height:1.6">Sistem peringatan dini otomatis saat skor komposit berada di bawah ambang aman sebelum terjadi turnover talenta kunci.</div>
-      </div>
-    </div>
-  </section>
+                    <div class="lp-metrics-strip">
+                        <div>
+                            <div class="lp-metric-val tabular-nums">120+</div>
+                            <div class="lp-metric-lbl">Startup ekosistem</div>
+                        </div>
+                        <div>
+                            <div class="lp-metric-val tabular-nums">36</div>
+                            <div class="lp-metric-lbl">Indikator klinis</div>
+                        </div>
+                        <div>
+                            <div class="lp-metric-val tabular-nums">6 Pilar</div>
+                            <div class="lp-metric-lbl">Evaluasi dua peran</div>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- 6 Pilar Section -->
-  <section id="pilar" style="padding:60px 48px;background:#FFFFFF;border-top:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0">
-    <div style="max-width:1100px;margin:0 auto">
-      <div style="text-align:center;margin-bottom:40px">
-        <div style="font-size:11px;font-weight:800;color:#6366F1;letter-spacing:0.05em">FRAMEWORK DIAGNOSTIK</div>
-        <h2 style="font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-top:6px">6 Pilar Budaya Kerja &amp; Mitigasi Burnout</h2>
-        <p style="font-size:14px;color:#64748B;margin-top:4px">Kombinasi evaluasi strategis C-Level dan pengalaman langsung staf teknis di lapangan.</p>
-      </div>
+                <!-- Right Editorial UI Preview -->
+                <div class="lp-preview-frame" aria-label="Pratinjau skor WorkPulse">
+                    <div class="lp-preview-card">
+                        <div class="lp-preview-head">
+                            <span class="lp-preview-label">Indeks Budaya Organisasi</span>
+                            <span class="lp-live-pill">
+                                <span class="lp-live-dot" aria-hidden="true"></span>
+                                Live
+                            </span>
+                        </div>
 
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-        <div class="card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#EEF2FF;color:#6366F1;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">1. Visi &amp; Transparansi (VT)</div>
-          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Kejelasan arah runway, keterbukaan keputusan pivot strategi, dan penyelarasan OKR lintas divisi.</div>
-        </div>
-        <div class="card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#ECFDF5;color:#10B981;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">2. Kualitas Kepemimpinan (KK)</div>
-          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Empati manajerial, pengakuan kontribusi, dan penghapusan micromanagement yang menekan engineer.</div>
-        </div>
-        <div class="card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#E0F2FE;color:#0EA5E9;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">3. Fasilitas &amp; Infrastruktur (FI)</div>
-          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Investasi hardware, lisensi software/cloud modern, stabilitas pipeline CI/CD, dan tunjangan kerja remote.</div>
-        </div>
-        <div class="card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#FFE4E6;color:#F43F5E;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">4. Beban Kerja / Workload (BK)</div>
-          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Pencegahan lembur terus-menerus, peredaman sprint crunch, dan penghormatan waktu istirahat tim.</div>
-        </div>
-        <div class="card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#EDE9FE;color:#8B5CF6;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">5. Kesejahteraan Mental (KM)</div>
-          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Keamanan psikologis (psychological safety), iklim bebas intimidasi, dan support pencegahan kelelahan emosional.</div>
-        </div>
-        <div class="card">
-          <div style="width:40px;height:40px;border-radius:10px;background:#FEF3C7;color:#F59E0B;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">6. Kompensasi &amp; Karir (KP)</div>
-          <div style="font-size:12.5px;color:#64748B;line-height:1.5">Daya saing gaji industri, transparansi kepemilikan ESOP, dan jalur jenjang karir yang terukur adil.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+                        <div class="lp-preview-score-row">
+                            <div class="lp-preview-score tabular-nums">4.18 <span>/ 5.00</span></div>
+                            <span class="wp-status-badge wp-status-stabil">Kondisi Stabil</span>
+                        </div>
 
-  <!-- Metodologi Klinis Section -->
-  <section id="metodologi" style="padding:70px 48px;max-width:1100px;margin:0 auto">
-    <div style="text-align:center;margin-bottom:44px">
-      <div style="font-size:11px;font-weight:800;color:#6366F1;letter-spacing:0.05em">STANDAR PENGUKURAN</div>
-      <h2 style="font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-top:6px">Metodologi &amp; Klasifikasi Risiko Burnout</h2>
-      <p style="font-size:14px;color:#64748B;margin-top:4px">Skor komposit dihitung dalam rentang 1.00 – 5.00 dan dipetakan ke 4 tingkatan status klinis.</p>
-    </div>
+                        <div class="lp-preview-bars">
+                            <div>
+                                <div class="lp-bar-meta">
+                                    <span>Visi &amp; Transparansi</span>
+                                    <span class="tabular-nums">4.30</span>
+                                </div>
+                                <div class="lp-bar-track"><div class="lp-bar-fill" style="width: 86%"></div></div>
+                            </div>
+                            <div>
+                                <div class="lp-bar-meta">
+                                    <span>Kualitas Kepemimpinan</span>
+                                    <span class="tabular-nums">4.10</span>
+                                </div>
+                                <div class="lp-bar-track"><div class="lp-bar-fill" style="width: 82%"></div></div>
+                            </div>
+                            <div>
+                                <div class="lp-bar-meta">
+                                    <span>Beban Kerja (Workload)</span>
+                                    <span class="tabular-nums">3.42</span>
+                                </div>
+                                <div class="lp-bar-track"><div class="lp-bar-fill" style="width: 68.4%"></div></div>
+                            </div>
+                            <div>
+                                <div class="lp-bar-meta">
+                                    <span>Kesejahteraan Mental</span>
+                                    <span class="tabular-nums">3.95</span>
+                                </div>
+                                <div class="lp-bar-track"><div class="lp-bar-fill" style="width: 79%"></div></div>
+                            </div>
+                        </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
-      <div class="card" style="padding:22px;border-top:4px solid #10B981">
-        <div style="font-size:12px;font-weight:800;color:#10B981;margin-bottom:6px">4.20 – 5.00</div>
-        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">Budaya Kerja Positif</div>
-        <div style="font-size:12px;color:#64748B;line-height:1.5">Organisasi sangat sehat, beban terdistribusi merata, dan psychological safety tinggi.</div>
-      </div>
-      <div class="card" style="padding:22px;border-top:4px solid #2563EB">
-        <div style="font-size:12px;font-weight:800;color:#2563EB;margin-bottom:6px">3.50 – 4.19</div>
-        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">Kondisi Stabil</div>
-        <div style="font-size:12px;color:#64748B;line-height:1.5">Ritme sprint terkendali, perlu pemantauan berkala saat release cycle tinggi.</div>
-      </div>
-      <div class="card" style="padding:22px;border-top:4px solid #F59E0B">
-        <div style="font-size:12px;font-weight:800;color:#F59E0B;margin-bottom:6px">2.80 – 3.49</div>
-        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">Waspada Gejala Burnout</div>
-        <div style="font-size:12px;color:#64748B;line-height:1.5">Terdeteksi kelelahan sistemik awal, jam lembur meningkat, atau friksi komunikasi internal.</div>
-      </div>
-      <div class="card" style="padding:22px;border-top:4px solid #EF4444">
-        <div style="font-size:12px;font-weight:800;color:#EF4444;margin-bottom:6px">1.00 – 2.79</div>
-        <div style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px">Risiko Burnout Tinggi</div>
-        <div style="font-size:12px;color:#64748B;line-height:1.5">Kelelahan mental akut, risiko turnover tinggi, memerlukan tindakan perbaikan mendesak.</div>
-      </div>
-    </div>
-  </section>
+                        <div class="lp-preview-foot">
+                            Agregasi 2 sudut pandang: C-Level &amp; Staf Teknis
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- CTA Section -->
-  <section style="padding:60px 48px;text-align:center;background:#F8FAFC">
-    <div style="max-width:680px;margin:0 auto">
-      <h2 style="font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-bottom:12px">Siap Membangun Tim Startup yang Tahan Banting?</h2>
-      <p style="font-size:14.5px;color:#64748B;line-height:1.6;margin-bottom:24px">Bergabung dengan ekosistem teknologi yang mengutamakan kesehatan talenta digital untuk pertumbuhan bisnis jangka panjang.</p>
-      <a href="{{ route('register') }}" class="btn-primary" style="text-decoration:none;padding:14px 28px;font-size:15px;display:inline-flex;align-items:center">Daftarkan Startup Anda Sekarang</a>
-    </div>
-  </section>
+        <!-- Kapabilitas / Fitur -->
+        <section id="fitur" class="lp-section">
+            <div class="wp-container">
+                <div class="lp-section-head">
+                    <div class="wp-kicker">Kapabilitas Platform</div>
+                    <h2 class="lp-section-title">Diagnostik budaya kerja yang terukur untuk tim teknologi</h2>
+                    <p class="lp-section-sub">Dirancang khusus mengikuti ritme kerja startup dari tahap Pre-Seed hingga Series A ke atas.</p>
+                </div>
 
-  <!-- Footer -->
-  <footer style="padding:24px 48px;border-top:1px solid #E2E8F0;background:#FFFFFF;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:#64748B">
-    <div style="font-weight:800;color:#6366F1">WorkPulse</div>
-    <div>&copy; {{ date('Y') }} WorkPulse Clinical Analytics. Hak cipta dilindungi.</div>
-    <div style="display:flex;gap:18px">
-      <a href="#fitur" style="color:#64748B;text-decoration:none">Fitur</a>
-      <a href="#pilar" style="color:#64748B;text-decoration:none">6 Pilar</a>
-      <a href="#metodologi" style="color:#64748B;text-decoration:none">Metodologi</a>
-    </div>
-  </footer>
+                <div class="lp-grid-3">
+                    <div class="lp-feature-item">
+                        <div class="lp-num tabular-nums">01</div>
+                        <h3 class="lp-feature-title">36 Indikator Klinis Skala Likert</h3>
+                        <p class="lp-feature-desc">Kuesioner terstandarisasi skala 1–5 yang mengukur kelelahan emosional, batas jam sprint, serta keterbukaan runway secara presisi.</p>
+                    </div>
+                    <div class="lp-feature-item">
+                        <div class="lp-num tabular-nums">02</div>
+                        <h3 class="lp-feature-title">Evaluasi Dua Sudut Pandang</h3>
+                        <p class="lp-feature-desc">Memisahkan instrumen penilaian C-Level dan Staf agar manajemen dapat mendeteksi kesenjangan persepsi di lapangan.</p>
+                    </div>
+                    <div class="lp-feature-item">
+                        <div class="lp-num tabular-nums">03</div>
+                        <h3 class="lp-feature-title">Deteksi Dini Risiko Burnout</h3>
+                        <p class="lp-feature-desc">Menghitung indeks komposit otomatis dan memicu alur notifikasi sebelum kelelahan sistemik berdampak pada retensi tim.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 Pilar Budaya -->
+        <section id="pilar" class="lp-section lp-section-surface">
+            <div class="wp-container">
+                <div class="lp-section-head">
+                    <div class="wp-kicker">Framework Diagnostik</div>
+                    <h2 class="lp-section-title">Enam pilar kesehatan organisasi</h2>
+                    <p class="lp-section-sub">Tiga pilar strategis dievaluasi oleh jajaran C-Level dan tiga pilar operasional dievaluasi oleh staf teknis.</p>
+                </div>
+
+                <div class="lp-pillars-grid">
+                    <div class="lp-pillar-card">
+                        <div class="lp-pillar-top">
+                            <span class="lp-pillar-code tabular-nums">01 · VT</span>
+                            <span class="lp-role-tag">C-Level</span>
+                        </div>
+                        <h3 class="lp-feature-title">Visi &amp; Transparansi</h3>
+                        <p class="lp-feature-desc">Kejelasan arah runway finansial, keterbukaan keputusan pivot strategi, dan keselarasan OKR lintas tim.</p>
+                    </div>
+
+                    <div class="lp-pillar-card">
+                        <div class="lp-pillar-top">
+                            <span class="lp-pillar-code tabular-nums">02 · KK</span>
+                            <span class="lp-role-tag">Staf</span>
+                        </div>
+                        <h3 class="lp-feature-title">Kualitas Kepemimpinan</h3>
+                        <p class="lp-feature-desc">Empati manajerial, keadilan delegasi tugas, umpan balik rutin, dan ketiadaan micromanagement.</p>
+                    </div>
+
+                    <div class="lp-pillar-card">
+                        <div class="lp-pillar-top">
+                            <span class="lp-pillar-code tabular-nums">03 · FI</span>
+                            <span class="lp-role-tag">C-Level</span>
+                        </div>
+                        <h3 class="lp-feature-title">Fasilitas &amp; Infrastruktur</h3>
+                        <p class="lp-feature-desc">Kelayakan perangkat kerja, stabilitas pipeline CI/CD, lisensi tooling modern, serta dukungan kerja hybrid.</p>
+                    </div>
+
+                    <div class="lp-pillar-card">
+                        <div class="lp-pillar-top">
+                            <span class="lp-pillar-code tabular-nums">04 · BK</span>
+                            <span class="lp-role-tag">Staf</span>
+                        </div>
+                        <h3 class="lp-feature-title">Beban Kerja (Workload)</h3>
+                        <p class="lp-feature-desc">Realisme tenggat sprint, frekuensi lembur di luar jam kerja, dan ruang pemulihan setelah rilis fitur.</p>
+                    </div>
+
+                    <div class="lp-pillar-card">
+                        <div class="lp-pillar-top">
+                            <span class="lp-pillar-code tabular-nums">05 · KM</span>
+                            <span class="lp-role-tag">Staf</span>
+                        </div>
+                        <h3 class="lp-feature-title">Kesejahteraan Mental</h3>
+                        <p class="lp-feature-desc">Keamanan psikologis dalam bersuara, lingkungan bebas intimidasi, serta pemantauan kelelahan emosional.</p>
+                    </div>
+
+                    <div class="lp-pillar-card">
+                        <div class="lp-pillar-top">
+                            <span class="lp-pillar-code tabular-nums">06 · KP</span>
+                            <span class="lp-role-tag">C-Level</span>
+                        </div>
+                        <h3 class="lp-feature-title">Kompensasi &amp; Karir</h3>
+                        <p class="lp-feature-desc">Daya saing remunerasi dan ESOP terhadap pasar teknologi serta kejelasan jalur karir spesialis maupun manajerial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metodologi & Klasifikasi -->
+        <section id="metodologi" class="lp-section">
+            <div class="wp-container">
+                <div class="lp-section-head">
+                    <div class="wp-kicker">Standar Pengukuran</div>
+                    <h2 class="lp-section-title">Klasifikasi indeks risiko burnout</h2>
+                    <p class="lp-section-sub">Setiap pengisian asesmen menghasilkan skor komposit pada rentang 1.00 hingga 5.00 yang dipetakan ke empat status klinis.</p>
+                </div>
+
+                <div class="lp-grid-4">
+                    <div class="lp-tier-card">
+                        <div><span class="wp-status-badge wp-status-positif">Budaya Kerja Positif</span></div>
+                        <div class="lp-tier-range tabular-nums">4.20 – 5.00</div>
+                        <p class="lp-feature-desc">Organisasi sehat dan suportif, beban terdistribusi merata, dan keamanan psikologis tinggi.</p>
+                    </div>
+                    <div class="lp-tier-card">
+                        <div><span class="wp-status-badge wp-status-stabil">Kondisi Stabil</span></div>
+                        <div class="lp-tier-range tabular-nums">3.50 – 4.19</div>
+                        <p class="lp-feature-desc">Ritme sprint terkendali, memerlukan pemantauan berkala saat siklus rilis produk meningkat.</p>
+                    </div>
+                    <div class="lp-tier-card">
+                        <div><span class="wp-status-badge wp-status-waspada">Waspada Gejala Burnout</span></div>
+                        <div class="lp-tier-range tabular-nums">2.80 – 3.49</div>
+                        <p class="lp-feature-desc">Terdeteksi gejala kelelahan sistemik awal, jam lembur meningkat, atau friksi komunikasi tim.</p>
+                    </div>
+                    <div class="lp-tier-card">
+                        <div><span class="wp-status-badge wp-status-tinggi">Risiko Burnout Tinggi</span></div>
+                        <div class="lp-tier-range tabular-nums">1.00 – 2.79</div>
+                        <p class="lp-feature-desc">Kelelahan mental akut dengan risiko turnover tinggi; membutuhkan intervensi manajemen segera.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <section class="lp-section" style="padding-top: 0; border-top: 0;">
+            <div class="wp-container">
+                <div class="lp-cta-box">
+                    <div style="max-width: 36rem;">
+                        <h2 class="lp-section-title" style="margin-bottom: 0.625rem;">Bangun ritme kerja startup yang berkelanjutan.</h2>
+                        <p class="lp-section-sub">Daftarkan tim Anda untuk mulai memantau enam pilar kesehatan organisasi secara berkala.</p>
+                    </div>
+                    <a href="{{ route('register') }}" class="wp-btn-primary">Daftarkan Startup Anda</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="lp-footer">
+        <div class="wp-container lp-footer-inner">
+            <span class="font-serif" style="font-weight: 700; font-size: 1rem; color: var(--ink-primary);">WorkPulse</span>
+            <span>&copy; {{ date('Y') }} WorkPulse Clinical Analytics.</span>
+            <div class="lp-footer-links">
+                <a href="#fitur">Fitur</a>
+                <a href="#pilar">6 Pilar</a>
+                <a href="#metodologi">Metodologi</a>
+            </div>
+        </div>
+    </footer>
 </div>
 @endsection
-
